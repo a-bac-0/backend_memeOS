@@ -1,8 +1,8 @@
-import db from '../database/db.js'
-import { DataTypes } from 'sequelize';
+import db from "../database/db.js";
+import { DataTypes } from "sequelize";
 
 const memeModel = db.define(
-  'Meme',
+  "Meme",
   {
     // Model attributes are defined here
     name: {
@@ -15,28 +15,28 @@ const memeModel = db.define(
       allowNull: false,
     },
     date: {
-        type:  DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     author: {
-        type:  DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     stream: {
-        type:  DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     description: {
-        type:  DataTypes.STRING,
-        allowNull: false,
-    }
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     // Other model options go here
     timestamps: false,
-  },
+  }
 );
 
 // `sequelize.define` also returns the model
 console.log(memeModel === db.models.Meme); // true
-export default memeModel
+export default memeModel;
