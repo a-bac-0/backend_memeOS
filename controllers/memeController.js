@@ -13,3 +13,5 @@ const memeController= {
         }
     }
 }
+
+export default memeController;

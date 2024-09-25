@@ -1,5 +1,7 @@
 import db from './database/db.js'
 import memeModel from './models/memeModel.js'
+import express from 'express';
+import memeRouters from './routers/memeRouters.js'
 
 const app = express ();
 const PORT = process.env.PORT||3000;
