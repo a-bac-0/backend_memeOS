@@ -9,7 +9,7 @@ const memeController= {
         }
         catch (error){
             console.error(error);
-            res.status(500).json({Message:"× Error al crear meme"});
+            res.status(500).json({Message:"❌ Error al crear meme"});
         }
     }
 }
