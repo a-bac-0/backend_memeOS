@@ -27,5 +27,15 @@ const memeController = {
       res.status(500).json({ Message: "❌ Error al obtener memes" });
     }
   },
+  getOneMeme: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const oneMeme = await memeModel.findByPk(id);
+      res.status(200).json(oneMeme);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ Message: "❌ Error al obtener meme" });
+    }
+  },
 };
 export default memeController;

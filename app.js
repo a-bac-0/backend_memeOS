@@ -4,7 +4,7 @@ import express from "express";
 import memeRouters from "./routers/memeRouters.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 //middleware es para convertir json/js-js/json
 app.use(express.json());
