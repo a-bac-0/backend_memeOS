@@ -37,5 +37,24 @@ const memeController = {
       res.status(500).json({ Message: "❌ Error al obtener meme" });
     }
   },
+  updateMeme: async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name, date, author, stream, description } = req.body;
+        await memeModel.update({
+            name,
+            date,
+            author,
+            stream,
+            description
+            },
+            { where: { id } } );
+            const updateMeme = await memeModel.findByPk(id);
+          res.status(200).json(updateMeme);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ Message: "❌ Error al actualizar meme" });
+      }
+  }
 };
 export default memeController;
