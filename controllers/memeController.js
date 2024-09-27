@@ -55,6 +55,26 @@ const memeController = {
         console.error(error);
         res.status(500).json({ Message: "❌ Error al actualizar meme" });
       }
+  },
+
+  deleteMeme: async (req, res) => {
+    try {
+      const {id} = req.params;
+      const deletedMeme = await memeModel.findByPk(id);
+      if (!deletedMeme){
+        return res.status(404).json({Message: "❌ Meme no encontrado"});
+      }
+      else {
+        deletedMeme.destroy(
+          { where: {id}
+        });
+        return res.status(204).json({Message:"Happy meme"})
+      }
+    }
+    catch (error) {
+      console.error(error);
+      res.status(500).json({ Message:"❌ Error al eliminar el meme"});
+    }
   }
 };
 export default memeController;
