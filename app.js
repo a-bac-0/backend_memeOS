@@ -1,6 +1,7 @@
+import express from "express";
+import cors from "cors";
 import db from "./database/db.js";
 import memeModel from "./models/memeModel.js";
-import express from "express";
 import memeRouters from "./routers/memeRouters.js";
 
 const app = express();
