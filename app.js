@@ -2,8 +2,10 @@ import db from "./database/db.js";
 import memeModel from "./models/memeModel.js";
 import express from "express";
 import memeRouters from "./routers/memeRouters.js";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 8000;
 
 //middleware es para convertir json/js-js/json

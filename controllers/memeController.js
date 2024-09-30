@@ -18,6 +18,7 @@ const memeController = {
       res.status(500).json({ Message: "❌ Error al crear meme" });
     }
   },
+  
   getAllMemes: async (req, res) => {
     try {
       const allMemes = await memeModel.findAll();
