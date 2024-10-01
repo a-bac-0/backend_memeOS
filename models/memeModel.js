@@ -4,14 +4,12 @@ import { DataTypes } from "sequelize";
 const memeModel = db.define(
   "Meme",
   {
-    // Model attributes are defined here
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     image: {
       type: DataTypes.STRING,
-      // allowNull defaults to true
       allowNull: false,
     },
     date: {
@@ -32,11 +30,9 @@ const memeModel = db.define(
     },
   },
   {
-    // Other model options go here
     timestamps: false,
   }
 );
 
-// `sequelize.define` also returns the model
 console.log(memeModel === db.models.Meme); // true
 export default memeModel;
