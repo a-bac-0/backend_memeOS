@@ -2,6 +2,8 @@ import express from "express";
 import db from "./database/db.js";
 import memeModel from "./models/memeModel.js";
 import memeRoutes from "./routes/memeRoutes.js";
+import cors from 'cors';
+
 
 const app = express();
 app.use(cors());

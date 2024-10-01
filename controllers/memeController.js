@@ -78,8 +78,10 @@ const memeController = {
 				},
 				{ where: { id } }
 			);
+			const updatedMeme = await memeModel.findByPk(id);
 			return res.status(200).json({
 				message: "✅ Meme updated successfully",
+				data: updatedMeme, 
 			});
 		} catch (error) {
 			console.error(error);
