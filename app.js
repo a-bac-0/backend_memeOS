@@ -1,17 +1,18 @@
 import express from "express";
-import cors from "cors";
 import db from "./database/db.js";
 import memeModel from "./models/memeModel.js";
-import memeRouters from "./routers/memeRouters.js";
+import memeRoutes from "./routes/memeRoutes.js";
+import cors from 'cors';
 
-const app = express();
+export const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 8000;
 
 //middleware es para convertir json/js-js/json
 app.use(express.json());
 
 //para usar la ruta que queremos
-app.use("/api", memeRouters);
+app.use("/api/memes", memeRoutes);
 
 try {
   await db.authenticate();
@@ -23,6 +24,6 @@ try {
   console.error("❌Unable to connect to the database:", error);
 }
 
-app.listen(PORT, () => {
+export const server = app.listen(PORT, () => {
   console.log(`🏃‍♂️Server running on http://localhost:${PORT}`);
 });

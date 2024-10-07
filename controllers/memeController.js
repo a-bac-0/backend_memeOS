@@ -79,7 +79,7 @@ const memeController = {
 				{ where: { id } }
 			);
 			return res.status(200).json({
-				message: "✅ Meme updated successfully",
+				message: "✅ Meme updated successfully"
 			});
 		} catch (error) {
 			console.error(error);
