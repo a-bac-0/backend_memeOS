@@ -44,14 +44,13 @@ describe('Meme Controller CRUD Tests', () => {
         const response = await request(app).post('/api/memes').send(memeData);
 
         expect(response.status).toBe(201);
-        expect(response.body.message).toBe("✅ Meme created successfully");
-        expect(response.body.data.name).toBe(memeData.name);
-        expect(response.body.data.image).toBe(memeData.image);
-        expect(response.body.data.date).toBe(memeData.date);
-        expect(response.body.data.author).toBe(memeData.author);
-        expect(response.body.data.stream).toBe(memeData.stream);
-        expect(response.body.data.description).toBe(memeData.description);
-        expect(response.body.data).toHaveProperty('id');
+        expect(response.body.name).toBe(memeData.name);
+        expect(response.body.image).toBe(memeData.image);
+        expect(response.body.date).toBe(memeData.date);
+        expect(response.body.author).toBe(memeData.author);
+        expect(response.body.stream).toBe(memeData.stream);
+        expect(response.body.description).toBe(memeData.description);
+        expect(response.body).toHaveProperty('id');
     });
 
     //=================================
@@ -80,13 +79,13 @@ describe('Meme Controller CRUD Tests', () => {
 
         expect(response.status).toBe(200);
         expect(response.headers['content-type']).toContain('application/json')
-        expect(Array.isArray(response.body.data)).toBe(true);
+        expect(Array.isArray(response.body)).toBe(true);
 
         // Recuperamos los memes de la base de datos
         const memesIndb = await memeModel.findAll();
 
         // Comprobamos que la longitud de la respuesta coincida con la longitud de los memes en la base de datos
-        expect(response.body.data).toHaveLength(memesIndb.length);
+        expect(response.body).toHaveLength(memesIndb.length);
 
     });
 
@@ -106,8 +105,7 @@ describe('Meme Controller CRUD Tests', () => {
         const response = await request(app).get(`/api/memes/${meme.id}`);
 
         expect(response.status).toBe(200);
-        expect(response.body.message).toBe("✅ Meme retrieved successfully");
-        expect(response.body.data.name).toBe(meme.name);
+        expect(response.body.name).toBe(meme.name);
     });
 
     // ============================
