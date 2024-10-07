@@ -13,10 +13,10 @@ const memeController = {
 				stream,
 				description,
 			});
-			return res.status(201).json({
-				message: "✅ Meme created successfully",
-				data: newMeme,
-			});
+			console.log("✅ Meme created successfully");
+			return res.status(201).json(
+				newMeme,
+			);
 		} catch (error) {
 			console.error("Error creating meme:", error);
 			return res.status(500).json({
@@ -29,10 +29,10 @@ const memeController = {
 	getAllMemes: async (req, res) => {
 		try {
 			const allMemes = await memeModel.findAll();
-			return res.status(200).json({
-				message: "✅ Memes retrieved successfully",
-				data: allMemes,
-			});
+			console.log("✅ Memes retrieved successfully");
+			return res.status(200).json(
+				allMemes,
+			);
 		} catch (error) {
 			console.error("Error retrieving memes:", error);
 			return res.status(500).json({
@@ -51,10 +51,10 @@ const memeController = {
 					message: "❌ Meme not found",
 				});
 			}
-			return res.status(200).json({
-				message: "✅ Meme retrieved successfully",
-				data: oneMeme,
-			});
+			console.log("✅ Meme retrieved successfully");
+			return res.status(200).json(
+				oneMeme,
+			);
 		} catch (error) {
 			console.error("Error retrieving meme:", error);
 			return res.status(500).json({
