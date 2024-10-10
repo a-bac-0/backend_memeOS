@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Description](#description)
+- [Frontend Repository](#frontend-repository)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Database Design](#database-design)
@@ -11,6 +12,7 @@
 - [Testing](#testing)
 - [Folder Structure](#folder-structure)
 - [Error Handling](#error-handling)
+- [Team Members](#team-members)
 
 ## Description
 
@@ -35,6 +37,7 @@ The frontend repository for this project can be found at **[Frontend Repository]
 
 - **Node.js**: Backend framework
 - **Express.js**: Web framework for building APIs
+- **MySQL**: Database for storing meme data
 - **Sequelize**: ORM for relational databases
 - **Express-validator**: Validation middleware for handling request data
 - **Postman**: API documentation and testing
