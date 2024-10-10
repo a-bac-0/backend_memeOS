@@ -106,9 +106,13 @@ To design the database schema **drawSQL** were used. You can refer to the design
 
 ## API Documentation
 
-The API will be available at http://localhost:8000.
+### API Access
 
-## Postman Documentation: The API is fully documented via Postman. You can import the Postman collection by using the following link: https://www.postman.com/spaceflight-operator-27824522/memeos-api/collection/3u54czh/memeos-api?action=share&creator=37812295
+The API will be available at: [http://localhost:8000](http://localhost:8000).
+
+### Postman Documentation
+
+The API is fully documented via Postman. You can import the Postman collection using the following link: [MemeOS API Postman Collection](https://www.postman.com/spaceflight-operator-27824522/memeos-api/collection/3u54czh/memeos-api?action=share&creator=37812295).
 
 ### Available Endpoints
 
