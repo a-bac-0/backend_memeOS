@@ -1,4 +1,4 @@
-# Meme Management API Project
+# Meme API Project
 
 ## Table of Contents
 
@@ -11,7 +11,6 @@
 - [Testing](#testing)
 - [Folder Structure](#folder-structure)
 - [Error Handling](#error-handling)
-- [Bonus Features](#bonus-features)
 
 ## Description
 
@@ -48,9 +47,7 @@ The database is designed to store the following information about memes:
 - **stream**: String (Optional)
 - **description**: Text (Optional)
 
-You can view the graphical representation of the database schema [here](#).
-
-To design the database schema, tools like **dbdiagram** or **drawSQL** were used. You can refer to the design diagram [here](#).
+To design the database schema **drawSQL** were used. You can refer to the design diagram [here](#).
 
 ## Project Setup
 
@@ -66,12 +63,54 @@ To design the database schema, tools like **dbdiagram** or **drawSQL** were used
 
    ```bash
    git clone (https://github.com/a-bac-0/backend_memeOS)](https://github.com/a-bac-0/backend_memeOS.git)
-   cd meme-management-api
    ```
+
+   ```bash
+   cd backend_memeOS
+   ```
+
+2. Install the dependencies:
+
+   ```bash
+    npm install
+   ```
+
+````
+
+3. Create a `.env` file in the root directory of your project and add the following environment variables:
+
+   ```bash
+   DB_HOST=your_database_host
+   DB_USER=your_database_user
+   DB_PASSWORD=your_database_password
+   DB_NAME=your_database_name
+````
+
+4. Run the following command to create the database tables:
+
+   ```bash
+    npx sequelize-cli db:migrate
+   ```
+
+5. Run the following command to seed the database with sample data:
+
+   ```bash
+    npx sequelize-cli db:seed:all
+   ```
+
+6. Start the server:
+
+   ```bash
+    node app.js
+   ```
+
+## API Documentation
 
 The API will be available at http://localhost:8000.
 
-## Available Endpoints
+## Postman Documentation: The API is fully documented via Postman. You can import the Postman collection by using the following link: https://www.postman.com/spaceflight-operator-27824522/memeos-api/collection/3u54czh/memeos-api?action=share&creator=37812295
+
+### Available Endpoints
 
 ### Meme Endpoints
 
@@ -82,6 +121,32 @@ The API will be available at http://localhost:8000.
 | POST   | `/memes`     | Create a new meme             | `{ name, image, date, author, stream, description }` | 201 Created with the created meme data |
 | PUT    | `/memes/:id` | Update an existing meme by ID | `{ name, image, date, author, stream, description }` | 200 OK with the updated meme data      |
 | DELETE | `/memes/:id` | Delete a meme by ID           | N/A                                                  | 200 OK with success message            |
+
+## Testing
+
+The API includes unit and integration tests using Jest and Supertest. To run the tests, use the following command:
+
+```bash
+npm test
+```
+
+## Folder Structure
+
+The project follows the MVC (Model-View-Controller) design pattern, making it modular and maintainable.
+
+```bash
+backend_memeOS
+├── __tests__           # Jest test files
+├── controllers         # Controllers for handling requests
+├── models              # Sequelize models for database
+├── routes              # Express routes
+├── validators          # Express-validator validation rules
+├── tests               # Jest and Supertest for unit tests
+├── config              # Database configuration
+├── migrations          # Sequelize migrations
+├── seeders             # Database seed files
+└── app.js              # Express application setup
+```
 
 ### Example Requests and Responses
 
@@ -103,32 +168,42 @@ The API will be available at http://localhost:8000.
   ]
   ```
 
-### 2. Install Dependencies
+#### 2. `POST /memes`
 
-Run the following command to install all necessary project dependencies:
+- **Description**: Create a new meme in the database.
+- **Request Body**:
+  ```json
+  {
+    "name": "Funny Meme",
+    "image": "https://example.com/meme.jpg",
+    "date": "2023-09-01",
+    "author": "John Doe",
+    "stream": "Random",
+    "description": "This is a meme description."
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "id": 1,
+    "name": "Funny Meme",
+    "image": "https://example.com/meme.jpg",
+    "date": "2023-09-01",
+    "author": "John Doe",
+    "stream": "Random",
+    "description": "This is a meme description."
+  }
+  ```
 
-```bash
-npm install
-```
+### Error Handling
 
-### 3. Configure Environment Variables
+The API includes error handling for common scenarios such as invalid data, missing resources, and server errors. The error responses follow a standard format with a status code and message.
 
-To configure the environment variables required for the project, follow these steps:
+#### Example Error Response
 
-1. Create a `.env` file in the root directory of your project.
-2. Add the following environment variables to the `.env` file:
-
-   ```bash
-   DB_HOST=your_database_host
-   DB_USER=your_database_user
-   DB_PASSWORD=your_database_password
-   DB_NAME=your_database_name
-   ```
-
-** revisar y cambiar los nombres de los archivos - verificar si migrations y seeders estaran en el readme**
-
-### 4. Start the server:
-
-```bash
-node app.js
+```json
+{
+  "status": 404,
+  "message": "Meme not found with ID 1"
+}
 ```
