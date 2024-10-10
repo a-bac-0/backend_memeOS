@@ -14,7 +14,11 @@
 
 ## Description
 
-This project is an API for managing meme data, allowing users to perform basic CRUD (Create, Read, Update, Delete) operations on meme resources. The API is built using Node.js, Express, and Sequelize ORM, and includes input validation with Express-validator. Additionally, it supports testing with Jest and Supertest.
+This project is an API for managing meme data, allowing users to perform basic CRUD (Create, Read, Update, Delete) operations on meme resources. The API is built using Node.js, Express, and Sequelize ORM, and includes input validation with Express-validator. The database is hosted on Clever Cloud, and the API is deployed on Render. Additionally, it supports testing with Jest and Supertest.
+
+## Frontend Repository
+
+The frontend repository for this project can be found at **[Frontend Repository](https://github.com/DarthVada36/memeos.git)**.
 
 ## Features
 
@@ -44,10 +48,10 @@ The database is designed to store the following information about memes:
 - **image**: URL (Required)
 - **date**: Date (Required)
 - **author**: String (Required)
-- **stream**: String (Optional)
-- **description**: Text (Optional)
+- **stream**: String (Required)
+- **description**: Text (Required)
 
-To design the database schema **drawSQL** were used. You can refer to the design diagram [here](#).
+To design the database schema **drawSQL** were used. You can refer to the design diagram **[here](https://drawsql.app/teams/a-bac-0/diagrams/memeos)**.
 
 ## Project Setup
 
@@ -62,7 +66,7 @@ To design the database schema **drawSQL** were used. You can refer to the design
 1. Clone the repository:
 
    ```bash
-   git clone (https://github.com/a-bac-0/backend_memeOS)](https://github.com/a-bac-0/backend_memeOS.git)
+   git clone https://github.com/a-bac-0/backend_memeOS.git
    ```
 
    ```bash
@@ -75,8 +79,6 @@ To design the database schema **drawSQL** were used. You can refer to the design
     npm install
    ```
 
-````
-
 3. Create a `.env` file in the root directory of your project and add the following environment variables:
 
    ```bash
@@ -84,7 +86,8 @@ To design the database schema **drawSQL** were used. You can refer to the design
    DB_USER=your_database_user
    DB_PASSWORD=your_database_password
    DB_NAME=your_database_name
-````
+   DB_TEST_NAME=your_test_database_name
+    ```
 
 4. Run the following command to create the database tables:
 
@@ -112,7 +115,7 @@ The API will be available at: [http://localhost:8000](http://localhost:8000).
 
 ### Postman Documentation
 
-The API is fully documented via Postman. You can import the Postman collection using the following link: [MemeOS API Postman Collection](https://www.postman.com/spaceflight-operator-27824522/memeos-api/collection/3u54czh/memeos-api?action=share&creator=37812295).
+The API is fully documented via Postman. You can import the Postman collection using the following link: **[MemeOS API Postman Collection](https://documenter.getpostman.com/view/37812295/2sAXqy1ykP)**.
 
 ### Available Endpoints
 
@@ -140,15 +143,12 @@ The project follows the MVC (Model-View-Controller) design pattern, making it mo
 
 ```bash
 backend_memeOS
-├── __tests__           # Jest test files
 ├── controllers         # Controllers for handling requests
 ├── models              # Sequelize models for database
 ├── routes              # Express routes
 ├── validators          # Express-validator validation rules
 ├── tests               # Jest and Supertest for unit tests
 ├── config              # Database configuration
-├── migrations          # Sequelize migrations
-├── seeders             # Database seed files
 └── app.js              # Express application setup
 ```
 
@@ -208,6 +208,14 @@ The API includes error handling for common scenarios such as invalid data, missi
 ```json
 {
   "status": 404,
-  "message": "Meme not found with ID 1"
+  "message": "❌ Meme not found"
 }
 ```
+
+## Team Members
+
+- **[Anca Bacria](https://github.com/a-bac-0)**
+- **[Juan Vázquez](https://github.com/juanvprada)**
+- **[Juliana Amorim](https://github.com/juamrm)**
+- **[Lorena Acosta](https://github.com/LorelizDev)**
+- **[Mónica Serna](https://github.com/monicaSernaS)**
